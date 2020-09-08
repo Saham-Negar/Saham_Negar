@@ -101,7 +101,7 @@ if uploaded_file is not None:
 
     for j in range(num_test_1):
 
-        df = pd.read_csv(file)
+        df = pd.read_csv('سمگا.csv')
 
         data = df.filter(['Adj Close'])
 
