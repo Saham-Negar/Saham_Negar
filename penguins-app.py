@@ -41,6 +41,8 @@ if uploaded_file is not None:
     
 
     df2 = df['Adj Close']
+    
+    new_df = df2
 
     st.line_chart(df2)
 
@@ -288,8 +290,8 @@ if uploaded_file is not None:
         model.fit(x_train, y_train, batch_size=batch, epochs=epock)
 
 
-        df = pd.read_csv('سمگا.csv')
-        new_df = df['Adj Close']
+#         df = pd.read_csv('سمگا.csv')
+#         new_df = df['Adj Close']
         last_60_days = new_df[-60:].values
         last_60_days_scaled = scaler.transform(last_60_days)
         X_test = []
