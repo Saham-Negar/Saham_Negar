@@ -275,7 +275,7 @@ if uploaded_file is not None:
         model.add(Dense(units=1))
 
         model.compile(optimizer='adam', loss='mean_squared_error', metrics='accuracy')
-        model.fit(x_train, y_train, batch_size=64, epochs=1)
+        model.fit(x_train, y_train, batch_size=batch, epochs=epock)
 
 
        
@@ -362,6 +362,280 @@ if uploaded_file is not None:
     st.write('Avj : ')
     st.write(vv)
     st.write()
+    
+    
+    
+#     part 2!
+
+    loop = []
+    for j in range(num_test_1):
+
+        df = pd.read_csv('سمگا.csv')
+
+        data = df.filter(['Adj Close'])
+
+        dataset = data.values
+
+        shaaa = df.shape[0]
+
+#         st.write()
+#         print(shaaa)
+#         print()
+#         print(j)
+
+        training_data_len = math.ceil(len(dataset) * .8)
+
+        scaler = MinMaxScaler(feature_range=(0, 1))
+        scaled_data = scaler.fit_transform(dataset)
+
+        train_data = scaled_data[0:training_data_len, :]
+
+        x_train = []
+        y_train = []
+
+        for i in range(60, len(train_data)):
+            x_train.append(train_data[i - 60:i, 0])
+            y_train.append(train_data[i, 0])
+
+        x_train, y_train = np.array(x_train), np.array(y_train)
+
+        x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
+
+        model = Sequential()
+
+        model.add(LSTM(60, return_sequences=True, input_shape=(x_train.shape[1], 1)))
+        model.add(LSTM(60, return_sequences=True))
+        model.add(LSTM(60, return_sequences=True))
+        model.add(LSTM(60, return_sequences=True))
+        # model.add(Dense(25))
+        model.add(LSTM(60))
+        model.add(Dense(1))
+
+        model.compile(optimizer='adam', loss='mean_squared_error', metrics='accuracy')
+        model.fit(x_train, y_train, batch_size=batch, epochs=epock)
+
+       
+
+        new_df = df.filter(['Adj Close'])
+        last_60_days = new_df[-60:].values
+        last_60_days_scaled = scaler.transform(last_60_days)
+        X_test = []
+        X_test.append(last_60_days_scaled)
+        X_test = np.array(X_test)
+        X_test = np.reshape(X_test, (X_test.shape[0], X_test.shape[1], 1))
+        pred_price = model.predict(X_test)
+        pred_price234 = scaler.inverse_transform(pred_price)
+
+        
+
+#         print(pred_price234)
+
+       
+
+        ttext = str(pred_price234)
+        text = ttext[2:-2]
+
+        # len() for text ^^^^^
+
+        q = False
+        a = text
+        m = 0
+        i = 0
+        while q == False:
+            try:
+                h = a[m:]
+                v = False
+                while v == False:
+                    try:
+                        i = i + 1
+                        k = h[:i]
+                        if '.' in k:
+                            k = k[:-1]
+
+                            ttxt = k
+
+#                             print(k)
+                            q = True
+                            v = True
+
+                    except:
+                        continue
+
+            except:
+                continue
+
+        text = int(ttxt)
+
+        
+
+        ttxt = int(text)
+#         print(str(ttxt))
+        # ttxt = int(ttxt) + 500
+        loop.append(ttxt)
+
+   
+
+
+    vv = 0
+    for i in range(num_test_1):
+        vv += loop[i]
+
+
+
+    vv = vv / num_test_1
+    vv = vv
+    loop2345.append(vv)
+
+    loop_test_num += vv
+
+    loop_test_num = loop_test_num / 2
+
+    last_loop = loop2345[0] + loop2345[1]
+    last_loop = last_loop / 2
+
+#     print()
+#     print('last_befor_lopp_test :')
+#     print(loop_test_num)
+#     print()
+#     print('last_befor_lopp :')
+#     print(last_loop)
+#     print()
+
+    dff = False
+
+    while dff == False:
+
+        if loop_test_num >= df3:
+            # loop_test_num += 500
+#             print(loop_test_num)
+            dff = True
+
+
+        else:
+            loop_test_num += 1
+
+#     print(loop_test_num)
+
+    dff2 = False
+
+    while dff2 == False:
+
+        if loop_test_num >= df4:
+            loop_test_num -= 1
+
+
+        else:
+            # loop_test_num -= 500
+#             print(loop_test_num)
+            dff2 = True
+
+#     print(loop_test_num)
+
+   
+    for i in range(num_test_1):
+        st.write()
+        st.write(str(i), '-pred : ')
+        st.write(str(loop[i]))
+
+#     print()
+#     print('Avj : ')
+#     print(vv)
+#     print()
+#     print()
+    st.write('Avj_loop_test_num : ')
+    st.write(loop_test_num)
+#     print()
+#     print()
+
+
+    test_i = int(df_val)
+
+#     print(test_i)
+
+    loop_test_num_range = int(loop_test_num) * error_persent
+
+    loop_test_num_range = int(loop_test_num_range)
+
+    range_1 = loop_test_num_range + int(loop_test_num)
+
+    dff = False
+
+    while dff == False:
+
+        if range_1 >= df3:
+#             print(range_1)
+            dff = True
+
+
+        else:
+            range_1 += 1
+
+#     print(range_1)
+
+    dff2 = False
+
+    while dff2 == False:
+
+        if range_1 >= df4:
+            range_1 -= 1
+
+
+        else:
+#             print(range_1)
+            dff2 = True
+
+    range_2 = loop_test_num_range - int(loop_test_num)
+
+    dff = False
+
+    while dff == False:
+
+        if range_2 >= df3:
+#             print(range_2)
+            dff = True
+
+
+        else:
+            range_2 += 1
+
+#     print(range_2)
+
+    dff2 = False
+
+    while dff2 == False:
+
+        if range_2 >= df4:
+            range_2 -= 1
+
+
+        else:
+#             print(range_2)
+            dff2 = True
+
+    st.write('the highest range in pred is : ')
+    st.write(range_1)
+    st.write()
+    st.write('the lowes range in pred is : ')
+    st.write(range_2)
+    st.write()
+
+
+
+   
+
+
+    if int(loop_test_num) > int(df_adj_close):
+        st.write('the price will get higher  ^')
+        st.write()
+
+    elif int(loop_test_num) < int(df_adj_close):
+        st.write('the price will get Lower   v')
+        st.write()
+
+
+    elif int(loop_test_num) == int(df_close):
+        st.write('the price will be in range !')
+        st.write()
     
     
     
