@@ -97,6 +97,8 @@ if uploaded_file is not None:
     df2 = k + '0'
     df3 = df3 - int(df2)
     df4 = df3_2 + int(df2)
+    
+    my_bar = st.progress(0)
 
 
     for j in range(num_test_1):
@@ -109,10 +111,10 @@ if uploaded_file is not None:
 
         shaaa = df.shape[0]
 
-        st.write()
-        st.write(shaaa)
-        st.write()
-        st.write(j)
+#         st.write()
+#         st.write(shaaa)
+#         st.write()
+#         st.write(j)
 
         # for io in range(0, 105):
         #     if shaaa == io:
@@ -246,6 +248,9 @@ if uploaded_file is not None:
                 batch = 98
 
         # print(data[-1:])
+        
+        prognum = int(j) * 10
+        my_bar.progress(prognum)
 
         training_data_len = math.ceil(len(dataset) * .8)
 
@@ -291,7 +296,7 @@ if uploaded_file is not None:
 
 
 
-        st.write(pred_price234)
+#         st.write(pred_price234)
 
 
         
@@ -331,7 +336,7 @@ if uploaded_file is not None:
        
 
         ttxt = int(text)
-        st.write(str(ttxt))
+#         st.write(str(ttxt))
         # ttxt = int(ttxt) + 500
         loop.append(ttxt)
 
@@ -358,16 +363,17 @@ if uploaded_file is not None:
         st.write(str(i), '-pred : ')
         st.write(str(loop[i]))
 
-    st.write()
-    st.write('Avj : ')
-    st.write(vv)
-    st.write()
+#     st.write()
+#     st.write('Avj : ')
+#     st.write(vv)
+#     st.write()
     
     
     
 #     part 2!
 
     loop = []
+    my_bar.progress(0)
     for j in range(num_test_1):
 
         df = pd.read_csv('سمگا.csv')
@@ -400,6 +406,9 @@ if uploaded_file is not None:
         x_train, y_train = np.array(x_train), np.array(y_train)
 
         x_train = np.reshape(x_train, (x_train.shape[0], x_train.shape[1], 1))
+        
+        prognum = int(j) * 10
+        my_bar.progress(prognum)
 
         model = Sequential()
 
