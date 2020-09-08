@@ -7,9 +7,10 @@ from sklearn.ensemble import RandomForestClassifier
 st.write("""
 # Saham-Negar web app
 
-This app predicts the stock price and so on!
+#This app predicts the stock price and so on!
 
 Data obtained from the privcy server!
+check our daily price on on the app!
 """)
 
 # st.sidebar.header('User Input Features')
