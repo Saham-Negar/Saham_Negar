@@ -3,19 +3,15 @@ import pandas as pd
 import numpy as np
 import pickle
 from sklearn.ensemble import RandomForestClassifier
-# from tkinter import *
-# import tkinter
-# from tkinter import filedialog, Text , Label , messagebox
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 import math
-# import pandas_datareader as web
 from sklearn.preprocessing import MinMaxScaler
-from keras.models import Sequential
-from keras.layers import Dense, LSTM
-# from tensorflow.keras.models import Sequential
-# from tensorflow.keras.layers import Dense, LSTM, Dropout, GRU, RNN, SimpleRNN
+# from keras.models import Sequential
+# from keras.layers import Dense, LSTM
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, LSTM, Dropout, GRU, RNN, SimpleRNN
 
 st.write("""
 # اپ سهام نگر 
@@ -35,7 +31,7 @@ if uploaded_file is not None:
     loop2345 = []
 
     loop = []
-    num_test_1 = 10
+    num_test_1 = 1
     error_persent = 0.025
 
 
@@ -389,15 +385,15 @@ if uploaded_file is not None:
 
     
 
-#     for i in range(num_test_1):
-# #         print()
-#         st.write(str(i), '-pred : ')
-#         st.write(str(loop[i]))
+    for i in range(num_test_1):
+#         print()
+        st.write(str(i), '-pred : ')
+        st.write(str(loop[i]))
 
-# #     print()
-#     st.write('Avj : ')
-#     st.write(vv)
-# #     print()
+#     print()
+    st.write('Avj : ')
+    st.write(vv)
+#     print()
 
 #     # df = m_qoute
 #     # df = web.DataReader('AAPL', data_source='yahoo', start='2012-01-01', end='2019-12-17')
