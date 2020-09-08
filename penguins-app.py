@@ -113,7 +113,7 @@ if uploaded_file is not None:
     for j in range(num_test_1):
 #         df = pd.read_csv(uploaded_file)
 
-        data = df['Adj Close']
+        data = df.filter(['Adj Close'])
 
         dataset = data.values
 
