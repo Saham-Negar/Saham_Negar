@@ -7,10 +7,8 @@ from sklearn.ensemble import RandomForestClassifier
 st.write("""
 # اپ سهام نگر 
 
-## بزودی ...
+## ...بزودی
 
-Data obtained from the privcy server!
-check our daily price on on the app!
 """)
 
 # st.sidebar.header('User Input Features')
