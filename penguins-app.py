@@ -14,10 +14,10 @@ from sklearn.model_selection import train_test_split
 import math
 # import pandas_datareader as web
 from sklearn.preprocessing import MinMaxScaler
-# from keras.models import Sequential
-# from keras.layers import Dense, LSTM
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Dense, LSTM, Dropout, GRU, RNN, SimpleRNN
+from keras.models import Sequential
+from keras.layers import Dense, LSTM
+# from tensorflow.keras.models import Sequential
+# from tensorflow.keras.layers import Dense, LSTM, Dropout, GRU, RNN, SimpleRNN
 
 st.write("""
 # اپ سهام نگر 
@@ -26,14 +26,14 @@ st.write("""
 
 """)
 
-st.sidebar.header('انتخاب فایل اکسل سهام مورد نظر')
-uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
-if uploaded_file is not None:
-    input_df = pd.read_csv(uploaded_file)
-    st.write(input_df)
-else:
-#     def user_input_features():
-     st.write('هیچ فایلی پیدا نشد')
+# st.sidebar.header('انتخاب فایل اکسل سهام مورد نظر')
+# uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
+# if uploaded_file is not None:
+#     input_df = pd.read_csv(uploaded_file)
+#     st.write(input_df)
+# else:
+# #     def user_input_features():
+#      st.write('هیچ فایلی پیدا نشد')
       
       
       
