@@ -26,14 +26,14 @@ st.write("""
 
 """)
 
-# st.sidebar.header('انتخاب فایل اکسل سهام مورد نظر')
-# uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
-# if uploaded_file is not None:
-#     input_df = pd.read_csv(uploaded_file)
-#     st.write(input_df)
-# else:
-# #     def user_input_features():
-#      st.write('هیچ فایلی پیدا نشد')
+st.sidebar.header('انتخاب فایل اکسل سهام مورد نظر')
+uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
+if uploaded_file is not None:
+    input_df = pd.read_csv(uploaded_file)
+    st.write(input_df)
+else:
+#     def user_input_features():
+     st.write('هیچ فایلی پیدا نشد')
       
       
       
