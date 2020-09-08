@@ -21,9 +21,11 @@ st.write("""
 """)
 
 st.sidebar.header('انتخاب فایل اکسل سهام مورد نظر')
-uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
+# uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
+uploaded_file = pd.read_csv('سمگا.csv')
 if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
+#     df = pd.read_csv(uploaded_file)
+    df = pd.read_csv('سمگا.csv')
     st.write(df)
 
     loop_test_num = 0
@@ -286,7 +288,7 @@ if uploaded_file is not None:
         model.fit(x_train, y_train, batch_size=batch, epochs=epock)
 
 
-       
+        df = pd.read_csv('سمگا.csv')
         new_df = df['Adj Close']
         last_60_days = new_df[-60:].values
         last_60_days_scaled = scaler.transform(last_60_days)
