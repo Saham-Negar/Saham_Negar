@@ -42,7 +42,7 @@ if uploaded_file is not None:
     # df = pd.read_csv(file)
     
 
-    df2 = df.AdjClose
+    df2 = df.['Adj Close']
 
     st.line_chart(df2)
 
@@ -52,13 +52,13 @@ if uploaded_file is not None:
 
     df_adj_close = df2
 
-    close = df.Close
+    close = df.['Close']
 
     close = close[-1:]
 
     df_close = close
 
-    val = df.Volume
+    val = df.['Volume']
 
     val = val[-1:]
 
@@ -113,7 +113,7 @@ if uploaded_file is not None:
     for j in range(num_test_1):
 #         df = pd.read_csv(uploaded_file)
 
-        data = df.AdjClose
+        data = df.['Adj Close']
 
         dataset = data.values
 
@@ -291,7 +291,7 @@ if uploaded_file is not None:
 
 
        
-        new_df = df.AdjClose
+        new_df = df.['Adj Close']
         last_60_days = new_df[-60:].values
         last_60_days_scaled = scaler.transform(last_60_days)
         X_test = []
