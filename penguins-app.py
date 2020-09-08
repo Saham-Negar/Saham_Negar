@@ -3,8 +3,6 @@ import pandas as pd
 import numpy as np
 import pickle
 from sklearn.ensemble import RandomForestClassifier
-import numpy as np
-import pandas as pd
 # from tkinter import *
 # import tkinter
 # from tkinter import filedialog, Text , Label , messagebox
@@ -30,7 +28,7 @@ st.sidebar.header('انتخاب فایل اکسل سهام مورد نظر')
 uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
 if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
-#     st.write(input_df)
+    st.write(df)
 
     loop_test_num = 0
 
