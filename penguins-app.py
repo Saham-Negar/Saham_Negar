@@ -26,9 +26,13 @@ if uploaded_file is not None:
     df = pd.read_csv('سمگا.csv')
     st.write(df)
     st.write('در حال ذخیره سازی داده')
-    with open('test.txt', 'w') as f:
+    with open('test.txt', 'a') as f:
         f.write('test is done!')
         st.write('that is finished!')
+        
+    with open('test.txt', 'r') as f:
+
+        st.write(str(f.read()))
     
     
 #     loop_test_num = 0
