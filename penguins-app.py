@@ -19,7 +19,8 @@ st.write("""
 
 """)
 
-# st.sidebar.header('انتخاب فایل اکسل سهام مورد نظر')
+st.sidebar.header('Username : ')
+# st.sidebar.
 # uploaded_file = st.sidebar.file_uploader("Upload your input CSV file", type=["csv"])
 uploaded_file = pd.read_csv('سمگا.csv')
 if uploaded_file is not None:
@@ -27,7 +28,8 @@ if uploaded_file is not None:
     st.write(df)
     st.write('در حال ذخیره سازی داده')
     with open('test.txt', 'a') as f:
-        f.write('test is done!')
+        f.write('\n')
+        f.write('\n')
         st.write('that is finished!')
         
     with open('test.txt', 'r') as f:
