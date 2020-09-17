@@ -12,6 +12,7 @@ from sklearn.preprocessing import MinMaxScaler
 # from keras.layers import Dense, LSTM
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, LSTM, Dropout, GRU, RNN, SimpleRNN
+import os
 
 st.write("""
 # اپ سهام نگر 
@@ -24,6 +25,11 @@ uploaded_file = pd.read_csv('سمگا.csv')
 if uploaded_file is not None:
     df = pd.read_csv('سمگا.csv')
     st.write(df)
+    st.write('در حال ذخیره سازی داده')
+    with open('test.txt', 'w') as f:
+        f.write('test is done!')
+        st.write('that is finished!')
+    
     
 #     loop_test_num = 0
 
