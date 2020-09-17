@@ -7,12 +7,6 @@ import time
 from PIL import Image
 from datetime import datetime, timedelta
 
-image_1 = Image.open('aa.ico')
-st.beta_set_page_config(page_title='سهام نگر', page_icon=image_1)
-
-
-
-
 
 # body
 
@@ -53,9 +47,9 @@ if button_finish_1:
                     date_now = date_now.replace('-', '')
                     date_now = int(date_now)
                     if date_now < account_maximum_date:
-                        image = Image.open('C:/Users/New/Desktop/12.png')
+                        image = Image.open('12.png')
                         st.image(image=image, caption='سهام شبریز 12 روز اینده', use_column_width=True)
-                        image = Image.open('C:/Users/New/Desktop/15.png')
+                        image = Image.open('15.png')
                         st.image(image=image, caption='سهام بترانس 15 روز اینده', use_column_width=True)
                     else:
                         st.write('!تاریخ معتبر نمی باشد')
