@@ -4,13 +4,26 @@ import numpy as np
 import pickle
 import os
 import time
+from PIL import Image
+
+
+
 
 # body
 
+
 st.write("""
 # اپ سهام نگر 
-
+مسیری به سوی اینده
 """)
+
+
+
+
+
+
+
+
 
 
 # side bar
@@ -30,9 +43,12 @@ if button_finish_1:
             data3 = {k.split(':')[0].strip():k.split(':')[1].strip() for k in data2}
             if username_enter in data3:
                 if password_enter == data3[username_enter]:
-                    st.write('done!')
+                    image = Image.open('12.png')
+                    st.image(image=image, caption='سهام شبریز 12 روز اینده', use_column_width=True)
+                    image = Image.open('15.png')
+                    st.image(image=image, caption='سهام بترانس 15 روز اینده', use_column_width=True)
                 else:
-                    st.write('رمز عبور وارد شده صحیح نمی باشد')
+                    st.write('!رمز عبور وارد شده صحیح نمی باشد')
             
     except:
         st.write(' !هیچ حساب کاربری یافت نشد')
@@ -41,17 +57,27 @@ if button_finish_1:
 
 
 
+
+
+
+
 # account making 
+st.sidebar.header('\n')
+st.sidebar.header('\n')
+st.sidebar.header('\n')
 st.sidebar.header('''ساخت حساب کاربری''')
 username = st.sidebar.text_input('نام کاربری : ')
 password = st.sidebar.text_input('رمز عبور : ')
 email = st.sidebar.text_input('ایمیل : ')
 phone = st.sidebar.text_input('شماره همراه : ')
-button_finish_2 = st.sidebar.button('ساخت اکانت')
+button_finish_2 = st.sidebar.button('ساخت حساب')
 
 
 if button_finish_2: 
-    with open(str(username) + '.txt', 'w') as f:
-        f.write( username + ' : ' + password)
-
-    st.write('از همکاری شما متشکریم')
+    try:
+        with open(str(username) + '.txt', 'r') as f:
+            st.write('با این مشخصات اکانت دیگر وجود دارد')
+    except:
+        with open(str(username) + '.txt', 'w') as f:
+            f.write( username + ' : ' + password)
+            st.write('!با موفقیت انجام گردید')
